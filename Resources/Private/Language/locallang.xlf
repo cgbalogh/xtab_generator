@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-01-12T17:40:53Z" product-name="xtab_generator">
+		<header/>
+		<body>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab">
+				<source>Xtab</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.aggregate_object">
+				<source>Aggregate Object</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.detail_object">
+				<source>Detail Object</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.template">
+				<source>Template</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.rowheader">
+				<source>Row Header</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.colheader">
+				<source>Column Header</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.transpose">
+				<source>Transpose table</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.rotateheader">
+				<source>Rotate column headers by 90°</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.colheaderselect">
+				<source>Column settings</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.colheaderfilter">
+				<source>Column filter</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.rowheaderselect">
+				<source>Row settings</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.rowheaderfilter">
+				<source>Row filter</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

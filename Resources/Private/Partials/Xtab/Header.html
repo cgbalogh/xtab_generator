@@ -1,0 +1,69 @@
+<fieldset class="tx_xtabgenerator_fieldset rlx5-envelope-fieldset">
+  <legend class="rlx5-focusperson">
+    {settings.xtab.title}
+  </legend>  
+  <div style="padding: 0 1em;">
+    <f:format.html>{settings.xtab.description}</f:format.html>
+  </div>
+</fieldset>
+
+
+
+<fieldset class="tx_xtabgenerator_fieldset rlx5-envelope-fieldset">
+  <legend class="rlx5-focusperson">
+    Filter
+  </legend>
+  <f:form 
+    enctype="multipart/form-data" 
+    method="post" 
+    action="xtab" 
+    name="xtabFilter" 
+    id="xtabFilter" 
+    fieldNamePrefix="tx_xtabgenerator_xtab"
+    class="tx_xtabgenerator-form rlx5-form"
+  >
+
+  <label for="transpose"  class="xtab_general-labelleft">
+    <f:translate key="tx_xtabgenerator.filter.transpose" />
+  </label>
+  <f:form.checkbox 
+    id="transpose" 
+    class="xtab_generator-submit"
+    name="filter[transpose]" 
+    value="1" 
+    checked="{filter.transpose}" 
+  />
+  <div class="clearer"></div>
+
+  <label for="rotateheader"  class="xtab_general-labelleft">
+    <f:translate key="tx_xtabgenerator.filter.rotateheader" />
+  </label>
+  <f:form.checkbox 
+    id="rotateheader" 
+    name="filter[rotateheader]" 
+    value="1" 
+    checked="{filter.rotateheader} || {settings.xtab.column.rotate}" 
+  />
+  <div class="clearer"></div>
+
+  <f:for each="{selectOptions}" key="section" as="oneSelectOption">
+    <label for="{section}"  class="xtab_general-labelleft">
+      {oneSelectOption.label}
+    </label>
+    <f:form.select 
+      id="{key}"
+      class="xtab_generator-submit"
+      name="filter[sql][{section}]"
+      options="{oneSelectOption.selectoptions}"
+      optionValueField="value"
+      optionLabelField="label"
+      value="{filter.sql.{section}}"
+    />
+    <div class="clearer"></div>
+    
+  </f:for>
+  
+  
+  </f:form>
+</fieldset>
+

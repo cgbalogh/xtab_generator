@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-01-12T17:40:53Z" product-name="xtab_generator">
+		<header/>
+		<body>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab">
+				<source>Xtab</source>
+				<target>Xtab</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.aggregate_object">
+				<source>Aggregate Object</source>
+				<target>Aggregat Objekt</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.detail_object">
+				<source>Detail Object</source>
+				<target>Detail Objekt</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.template">
+				<source>Template</source>
+				<target>Vorlage</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.rowheader">
+				<source>Row Header</source>
+				<target>Zeilenkopf</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.colheader">
+				<source>Column Header</source>
+				<target>Spaltenkopf</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.transpose">
+				<source>Transpose table</source>
+				<target>Tabelle transponieren</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.rotateheader">
+				<source>Rotate column headers by 90°</source>
+				<target>Spaltenköpfe um 90° drehen</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.colheaderselect">
+				<source>Column settings</source>
+				<target>Spalteneinstellungen</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.colheaderfilter">
+				<source>Column filter</source>
+				<target>Spaltenfilter</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.rowheaderselect">
+				<source>Row settings</source>
+				<target>Zeileneinstellungen</target>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator.filter.rowheaderfilter">
+				<source>Row filter</source>
+				<target>Zeilenfilter</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

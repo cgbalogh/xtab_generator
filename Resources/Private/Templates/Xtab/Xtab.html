@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <span data-lastcolumnheader="{settings.xtab.column.lastheader}"></span>
+  <span data-transpose="{filter.transpose}"></span>
+  <span data-coltotal="{coltotal}"></span>
+  
+  <f:render partial="Xtab/Header" arguments="{_all}"/>
+
+  <div style="position: relative;">
+    <div class="xtab-generator-wrap">
+      <table class="xtab-generator">
+        <thead>
+          <f:for each="{header}" as="element" iteration="colIterator">
+            <th class="col{colIterator.index}"><div><span>{element}</span></div></th>
+          </f:for>
+        </thead>
+
+        <tfoot></tfoot>
+
+        <tbody>
+          <f:for each="{table}" as="row" key="rowKey" iteration="rowIterator">
+            <tr>
+              <f:for each="{row}" as="element" key="colKey" iteration="colIterator">
+                
+                <td 
+                  style="{f:if(condition:'{element}!=0',then:'text-align:right;')}" 
+                  title="{rowKey} | {colKey}"
+                  class="col{colIterator.index}"
+                >
+
+                <!--  
+                  rowheader: {rowheader} rowKey: {rowKey}
+                  colheader: {colheader} colKey: {colKey}
+                  
+                  
+                -->
+                
+                <f:if condition="{colIterator.isLast} && (({settings.xtab.links} > 1)) && ({element} > 0)">
+                    <f:then>
+                      <f:if condition="{settings.xtab.details.pageUid}">
+                        <f:then>
+                          <f:link.action
+                            class="xtab_generator-button 1"
+                            pageUid='{settings.xtab.details.pageUid}' 
+                            action='list'
+                            target="_blank"
+                            controller='Datatable'
+                            extensionName='datatables'
+                            pluginName='Datatable'
+                            arguments='{data: \'{rowheader}="{rowKey}" AND ({where})\'}'>{element}</f:link.action>
+                        </f:then>
+                        <f:else>
+                          {element}
+                        </f:else>
+                      </f:if>
+                    </f:then>
+
+                    <f:else if="{rowIterator.isLast} && {rowtotal}">
+                      <f:if condition="{settings.xtab.details.pageUid} && ({element} > 0) && ({settings.xtab.links} > 1)">
+                        <f:then>
+                          <f:link.action
+                            class="xtab_generator-button 2"
+                            pageUid='{settings.xtab.details.pageUid}' 
+                            action='list'
+                            target="_blank"
+                            controller='Datatable'
+                            extensionName='datatables'
+                            pluginName='Datatable'
+                            arguments='{data: \'{colheader}="{colKey}" AND ({where})\'}'>{element}</f:link.action>
+                        </f:then>
+                        <f:else>
+                          {element}
+                        </f:else>
+                      </f:if>
+                    </f:else>
+
+                    <f:else if="{colIterator.index} && ! {colIterator.isLast}">
+                      <f:if condition="{settings.xtab.details.pageUid} && ({element} > 0) && ({settings.xtab.links})">
+                        <f:then>
+                          <f:link.action
+                            class="xtab_generator-button 3 e{element}e"
+                            pageUid='{settings.xtab.details.pageUid}' 
+                            action='list'
+                            target="_blank"
+                            controller='Datatable'
+                            extensionName='datatables'
+                            pluginName='Datatable'
+                            arguments='{data: \'{rowheader}="{rowKey}"AND {colheader}="{colKey}" AND ({where})\'}'>{element}</f:link.action>
+                        </f:then>
+                        <f:else>
+                          {element}
+                        </f:else>
+                      </f:if>
+                    </f:else>
+                    <f:else>
+                      {element}
+                    </f:else>  
+                  </f:if>
+
+                </td>
+              </f:for>
+            </tr>
+          </f:for>
+        </tbody>    
+      </table>
+    </div>
+  </div>
+  
+  
+  <div class="xtab_generator-sql">
+    <h3>SQL</h3>
+    {sql}
+  </div>
+  
+  <div class="xtab_generator-sql">
+    <h3>WHERE</h3>
+    {where}
+  </div>
+    
+</html>
+

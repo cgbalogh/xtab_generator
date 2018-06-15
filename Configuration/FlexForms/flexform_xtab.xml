@@ -1,0 +1,377 @@
+<T3DataStructure>
+	<sheets>
+      <sheet1>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>Select function</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">Generic Xtab</numIndex>
+										<numIndex index="1">Xtab-&gt;xtab</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">Basic XTAB</numIndex>
+										<numIndex index="1">Xtab-&gt;basic</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+				</el>
+			</ROOT>
+      </sheet1>
+	  <sheet2>
+		 <ROOT>
+		  <TCEforms>
+		  <sheetTitle>XTAB General Configuration</sheetTitle>
+		  </TCEforms>
+		  <type>array</type>
+		  <el>
+		  <settings.xtab.title>
+			 <TCEforms>
+			  <label>Title for this XTAB</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.title>
+		  <settings.xtab.description>
+			 <TCEforms>
+			  <label>Description</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>5</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.description>
+          <settings.xtab.details.pageUid>
+			 <TCEforms>
+			  <label>Details pageUid (contains a Datatable plugin)</label>
+              <config>
+                <type>group</type>
+                <internal_type>db</internal_type>
+                <allowed>pages</allowed>
+                <size>1</size>
+                <maxitems>1</maxitems>
+                <minitems>0</minitems>
+                <show_thumbs>1</show_thumbs>
+              </config>
+			 </TCEforms>
+		  </settings.xtab.details.pageUid>
+		  <settings.xtab.value>
+			 <TCEforms>
+			  <label>Value (leave empty for count)</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.value>
+		  <settings.xtab.from>
+			 <TCEforms>
+			  <label>FROM</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.from>
+		  <settings.xtab.join>
+			 <TCEforms>
+			  <label>JOIN</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.join>
+		  <settings.xtab.whereCondition>
+			 <TCEforms>
+			  <label>Where conditions (ini-file style section names will replace ###SECTIONNAME### in clauses</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.whereCondition>
+		  <settings.xtab.where>
+			 <TCEforms>
+			  <label>WHERE clause</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.where>
+		  <settings.xtab.group>
+			 <TCEforms>
+			  <label>GROUP BY clause</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.group>
+		  <settings.xtab.order>
+			 <TCEforms>
+			  <label>ORDER BY clause</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.order>
+		  <settings.xtab.manual>
+			 <TCEforms>
+			  <label>manual override</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.manual>
+		<settings.xtab.userLock>
+			<TCEforms>
+			  <label>User Lock</label>
+			  <config>
+				<type>check</type>
+			  </config>			  
+			</TCEforms>
+		</settings.xtab.userLock>
+		  <settings.xtab.links>
+			 <TCEforms>
+			  <label>Links in XTAB</label>
+			  <config>
+			  <type>radio</type>
+			  <items type="array">
+				<numIndex index="0" type="array">
+					<numIndex index="0">No links</numIndex>
+					<numIndex index="1">0</numIndex>
+				</numIndex>
+				<numIndex index="1" type="array">
+					<numIndex index="0">Links in all but last row/column</numIndex>
+					<numIndex index="1">1</numIndex>
+				</numIndex>
+				<numIndex index="2" type="array">
+					<numIndex index="0">Links in all rows/columns</numIndex>
+					<numIndex index="1">2</numIndex>
+				</numIndex>
+			  </items>
+			 </config>
+			</TCEforms>
+		  </settings.xtab.links>
+		  <settings.xtab.mapheaders>
+			 <TCEforms>
+			  <label>Map row or column headers (&lt;header&gt; = &lt;value&gt;)</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>8</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.mapheaders>
+		  </el>
+		 </ROOT>
+	  </sheet2>
+      <sheet3>
+		 <ROOT>
+		  <TCEforms>
+		  <sheetTitle>Column Settings</sheetTitle>
+		  </TCEforms>
+		  <type>array</type>
+		  <el>
+		  <settings.xtab.column.header>
+			 <TCEforms>
+			  <label>Column header (native SQL statement)</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>5</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.column.header>
+		  <settings.xtab.column.defaultheader>
+			 <TCEforms>
+			  <label>Default Column header (shown when header empty)</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.column.defaultheader>
+		  <settings.xtab.column.lastheader>
+			 <TCEforms>
+			  <label>Last Column header (shown in last column, useful if last row is a subsum)</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.column.lastheader>
+		  <settings.xtab.column.group>
+			 <TCEforms>
+			  <label>Column group expression</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.column.group>
+          <settings.xtab.column.reverseOrder>
+              <TCEforms>
+                <label>Reverse Order</label>
+                <config>
+                  <type>check</type>
+                </config>			  
+              </TCEforms>
+          </settings.xtab.column.reverseOrder>
+          <settings.xtab.column.rotate>
+              <TCEforms>
+                <label>Rotate Headers by default</label>
+                <config>
+                  <type>check</type>
+                </config>			  
+              </TCEforms>
+          </settings.xtab.column.rotate>
+          <settings.xtab.column.noTotalColumn>
+              <TCEforms>
+                <label>No Total Column</label>
+                <config>
+                  <type>check</type>
+                </config>			  
+              </TCEforms>
+          </settings.xtab.column.noTotalColumn>
+          </el>
+        </ROOT>
+      </sheet3>
+      <sheet4>
+		 <ROOT>
+		  <TCEforms>
+		  <sheetTitle>Row Settings</sheetTitle>
+		  </TCEforms>
+		  <type>array</type>
+		  <el>
+		  <settings.xtab.row.header>
+			 <TCEforms>
+			  <label>Row header (native SQL statement)</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>5</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.row.header>
+		  <settings.xtab.row.defaultheader>
+			 <TCEforms>
+			  <label>Default Row header (shown when header empty)</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.row.defaultheader>
+		  <settings.xtab.row.group>
+			 <TCEforms>
+			  <label>Row group expression</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.row.group>
+          <settings.xtab.row.reverseOrder>
+              <TCEforms>
+                <label>Reverse Order</label>
+                <config>
+                  <type>check</type>
+                </config>			  
+              </TCEforms>
+          </settings.xtab.row.reverseOrder>
+          <settings.xtab.row.noTotalRow>
+              <TCEforms>
+                <label>No Total Row</label>
+                <config>
+                  <type>check</type>
+                </config>			  
+              </TCEforms>
+          </settings.xtab.row.noTotalRow>
+          </el>
+         </ROOT>
+      </sheet4>
+      <sheet5>
+		 <ROOT>
+		  <TCEforms>
+		  <sheetTitle>Z-Axis Settings</sheetTitle>
+		  </TCEforms>
+		  <type>array</type>
+		  <el>
+		  <settings.xtab.zaxis>
+			 <TCEforms>
+			  <label>z-axis values (native SQL statement)</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>10</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.zaxis>
+		  <settings.xtab.zaxisFilter>
+			 <TCEforms>
+			  <label>z-axis filter (native SQL statement)</label>
+			  <config>
+			  <type>text</type>
+			  <cols>90</cols>
+			  <rows>10</rows>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.zaxisFilter>
+		  </el>
+		 </ROOT>
+      </sheet5>
+	  <sheet6>
+		 <ROOT>
+		  <TCEforms>
+		  <sheetTitle>XLS Export</sheetTitle>
+		  </TCEforms>
+		  <type>array</type>
+		  <el>
+		  <settings.xtab.xlsname>
+			 <TCEforms>
+			  <label>Filename for XLS export</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.xlsname>
+		  <settings.xtab.sheetname>
+			 <TCEforms>
+			  <label>Name of Excel Sheet for XLS export</label>
+			  <config>
+			  <type>input</type>
+			  <size>60</size>
+			  </config>
+			 </TCEforms>
+		  </settings.xtab.sheetname>
+		  </el>
+		 </ROOT>
+	  </sheet6>
+	</sheets>
+</T3DataStructure>

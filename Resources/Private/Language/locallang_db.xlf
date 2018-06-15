@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-01-09T13:27:40Z" product-name="xtab_generator">
+		<header/>
+		<body>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab">
+				<source>Xtab</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.aggregate_object">
+				<source>Aggregate Object</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.detail_object">
+				<source>Detail Object</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.template">
+				<source>Template</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.rowheader">
+				<source>Rowheader</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtab.colheader">
+				<source>Colheader</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtabgenerator.ce">
+				<source>XTAB Generator</source>
+			</trans-unit>
+			<trans-unit id="tx_xtabgenerator_domain_model_xtabgenerator.description.ce">
+				<source>This plugin provides an advanced cross-table (XTAB) data aggregation view. Works perfectly together with datatables plugin.</source>
+			</trans-unit>
+
+                        
+            
+            
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,211 @@
+<?php
+namespace CGB\XtabGenerator\Controller;
+
+/***
+ *
+ * This file is part of the "XTAB Generator" Extension for TYPO3 CMS.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ *  (c) 2018 Christoph Balogh <cb@lustige-informatik.at>
+ *
+ ***/
+
+/**
+ * XtabController
+ */
+class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
+    /**
+     * xtabRepository
+     *
+     * @var \CGB\XtabGenerator\Domain\Repository\XtabRepository
+     * @inject
+     */
+    protected $xtabRepository = null;
+
+    /**
+     * xtabService
+     * 
+     * @var \CGB\XtabGenerator\Service\XtabService
+     * @inject
+     */
+    protected $xtabService = null;
+    
+    /**
+     * action basic
+     *
+     * @return void
+     */
+    public function basicAction()
+    {
+        $sql = 'SELECT * FROM tx_relax5core_domain_model_person WHERE last_name LIKE \'Balogh%\' ORDER BY last_name';
+        print_r($this->settings);
+        $result = $this->xtabRepository->findBySqlQuery($sql);
+        print_r($result);
+    }
+
+    /**
+     * action xtab
+     *
+     * @param array $filter
+     * @return void
+     */
+    public function xtabAction($filter = [])
+    {
+        // $xtab = $this->objectManager->get(\CGB\XtabGenerator\Domain\Model\Xtab::class);
+
+        // $colheader = $this->settings['xtab']['column']['header'];
+        // $rowheader = $this->settings['xtab']['row']['header'];
+        // $from = $this->settings['xtab']['from'];
+        // $join = $this->settings['xtab']['join'];
+        // $where = $this->settings['xtab']['where'];
+        
+        $config = parse_ini_string($this->settings['xtab']['whereCondition'], true );
+        $selectOptions = [];
+        foreach($config as $section => $values) {
+            $headerArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(":", $section, 1);
+            $key = '###' . str_replace(' ', '_', strtoupper($headerArray[0])) . '###';
+            $selectOptions[$key]['id'] = $key;
+            $selectOptions[$key]['label'] = $headerArray[1];
+            
+            foreach($values as $label => $value) {
+                $selectOptions[$key]['selectoptions'][] =
+                    [
+                        'label' => $label,
+                        'value' => $value,
+                    ];
+                if (!isset($filter['sql'][$key])) {
+                    $filter['sql'][$key] = $value;
+                }
+            }
+            
+            // if the section key is numeric it is a replacement tag
+            if ( $headerArray[0] > 0 ) {
+                unset ($selectOptions[$key]);
+                $filter['sql'][$key] = $headerArray[1];
+            }
+            
+            
+            if ( $headerArray[0] == 'mapcolumn' ) {
+                unset ($selectOptions[$key]);
+                $mapfrom = '';
+                foreach ($values as $label => $value) {
+                    $mapfromArray[] = $label;
+                    $maptoArray[] = $value;
+                }
+                
+        		$mapfromString = "'" . implode("','", $mapfromArray) . "'";
+                $maptoString = "'" . implode("','", $maptoArray) . "'";
+                
+                $colheaderSQL = $this->settings['xtab']['column']['header'];
+                $colheaderSQL = "IF(FIELD( $colheaderSQL, $mapfromString ) = 0, $colheaderSQL, ELT(FIELD( $colheaderSQL, $mapfromString ), $maptoString ))";
+                $this->settings['xtab']['column']['header'] = $colheaderSQL;
+            }
+            
+        }
+        
+        
+        $filter['sql']['###_FROM###'] = $this->settings['xtab']['from'];
+        $filter['sql']['###_JOIN###'] = $this->settings['xtab']['join'];
+        $filter['sql']['###_WHERE###'] = $this->settings['xtab']['where'];
+        $filter['sql']['###_COUNT###'] = $this->settings['xtab']['value'] ? $this->settings['xtab']['value'] : 'COUNT(*)';
+        $filter['sql']['###_COL_HEADER###'] = $this->settings['xtab']['column']['header'];
+        $filter['sql']['###_ROW_HEADER###'] = $this->settings['xtab']['row']['header'];
+        $filter['sql']['###_COL_ORDER###'] = $this->settings['xtab']['column']['reverseOrder'] ? 'DESC' : 'ASC';
+        $filter['sql']['###_ROW_ORDER###'] = $this->settings['xtab']['row']['reverseOrder'] ? 'DESC' : 'ASC';
+        $filter['sql']['###_COL_HEADER_DEFAULT###'] = $this->settings['xtab']['column']['defaultheader'];
+        $filter['sql']['###_ROW_HEADER_DEFAULT###'] = $this->settings['xtab']['row']['defaultheader'] ? $this->settings['xtab']['row']['defaultheader'] : '*';
+        $filter['sql']['###FEUSERID###'] = $GLOBALS['TSFE']->fe_user->user['uid'];
+        
+        $coresql = "
+            SELECT 
+                   IF(###_ROW_HEADER### <> '',###_ROW_HEADER###,' ###_ROW_HEADER_DEFAULT###') AS rowheader, 
+                   ###_COL_HEADER### AS colheader, 
+                   ###_COUNT### AS value 
+              FROM ###_FROM###
+         LEFT JOIN ###_JOIN###
+             WHERE ###_WHERE###
+             GROUP BY 1,2
+             ORDER BY 1 ###_ROW_ORDER###, 2 ###_COL_ORDER###
+            ";
+        
+        $sql = "
+            SELECT 
+                   '' AS rowheader, 
+                   ###_COL_HEADER### AS colheader, 
+                   -999999999 AS value 
+              FROM ###_FROM###
+         LEFT JOIN ###_JOIN###
+             WHERE ###_WHERE###
+             GROUP BY 2 
+             UNION (
+            SELECT 
+                   IF(###_ROW_HEADER### <> '',###_ROW_HEADER###,' ###_ROW_HEADER_DEFAULT###') AS rowheader, 
+                   ###_COL_HEADER### AS colheader, 
+                   ###_COUNT### AS value 
+              FROM ###_FROM###
+         LEFT JOIN ###_JOIN###
+             WHERE ###_WHERE###
+             GROUP BY 1,2
+                   )
+             ORDER BY 1 ###_ROW_ORDER###, 2 ###_COL_ORDER###
+            ";
+        
+        // first replace run
+        $sql = str_replace(array_keys($filter['sql']), $filter['sql'], $sql);
+        $coresql = str_replace(array_keys($filter['sql']), $filter['sql'], $coresql);
+        // filter may include additional replacement markers, do again
+        $sql = str_replace(array_keys($filter['sql']), $filter['sql'], $sql);
+        $coresql = str_replace(array_keys($filter['sql']), $filter['sql'], $coresql);
+        
+        $replaceFeUserArray = [];
+        foreach($GLOBALS['TSFE']->fe_user->user as $key => $value) {
+            $replaceKey = '###FEUSER_' .  $key . '###';
+            $sql = str_replace($replaceKey, $value, $sql);
+        }
+        
+        
+        $colheader = str_replace(array_keys($filter['sql']), $filter['sql'], $this->settings['xtab']['column']['header']);
+        $rowheader = str_replace(array_keys($filter['sql']), $filter['sql'], $this->settings['xtab']['row']['header']);
+        $where = str_replace(array_keys($filter['sql']), $filter['sql'], $this->settings['xtab']['where']);
+        
+        // execute query
+        $result = $this->xtabRepository->findBySqlQuery($sql);
+        $colTotal = $rowTotal = true;
+        
+        $colTotal = ! $this->settings['xtab']['column']['noTotalColumn'];
+        $rowTotal = ! $this->settings['xtab']['row']['noTotalRow'];
+        
+        // convert result to matrix
+        $table = $this->xtabService->arrayToMatrix($result, $rowTotal, $colTotal, $filter['transpose']);
+        // print_r($table);
+        $header = $table[0];
+        unset($table[0]);
+
+        $this->view->assignMultiple([
+            'table' => $table,
+            'header' => $header,
+            'rowtotal' => $rowTotal,
+            'coltotal' => $colTotal,
+            'rowheader' => ($filter['transpose'] ? $colheader : $rowheader),
+            'colheader' => ($filter['transpose'] ? $rowheader : $colheader),
+            'settings' => $this->settings,
+            'sql' => $coresql,
+            'where' => $where,
+            'filter' => $filter,
+            'selectOptions' => $selectOptions,
+        ]);
+    }
+    
+    /**
+     * 
+     * @param array $array
+     * @return string
+     */
+    static function splitOptions ($array) {
+        $splitArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode("|", $array);
+        return ['label' => $splitArray[0], 'value' => $splitArray[1]];
+    }
+}

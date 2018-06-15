@@ -1,0 +1,49 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "Versatile XTAB Generator for any Extbase based extension.",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 7.6.0-7.6.99\n",
+            "disableLocalization": true,
+            "disableVersioning": true,
+            "skipGenerateDocumentationTemplate": true,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "7.6.0-7.6.99",
+            "version": ""
+        },
+        "extensionKey": "xtab_generator",
+        "name": "XTAB Generator",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "",
+                "email": "cb@lustige-informatik.at",
+                "name": "Christoph Balogh",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Xtab=>basic",
+                    "noncacheableActions": "Xtab=>basic",
+                    "switchableActions": "Basic XTAB \nXtab->basic"
+                },
+                "key": "xtab",
+                "name": "Xtab"
+            }
+        ],
+        "vendorName": "CGB"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2017-02-11 06:24",
+        "extension_builder_version": "7.6.0",
+        "be_user": " (1)"
+    }
+}

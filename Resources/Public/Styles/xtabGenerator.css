@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09.01.2018, 14:38:44
+    Author     : cbalogh
+*/
+
+div.xtab-generator-wrap {
+  width: auto;
+  overflow-x: auto;
+  /* margin-left: 10em; */
+  overflow-y: visible;
+  padding: 0; 
+}
+
+table.xtab-generator {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-top: 1px solid #999;
+  font-size: 90%;
+}
+
+table.xtab-generator td,
+table.xtab-generator th {
+  margin: 0;
+  padding: 2px;
+  border: 1px solid #999;
+  white-space: nowrap;
+  border-top-width: 0px;
+  border-right-width: 0px;
+}
+
+table.xtab-generator td:last-child,
+table.xtab-generator th:last-child {
+  border-right-width: 1px;
+}
+
+table.xtab-generator th:first-child {
+  border-top-width: 1px;
+}
+
+table.xtab-generator th:first-child:after {
+  content: "\00a0";
+}
+
+
+.col0 {
+  position: absolute;
+  /* width: 10em; */
+  left: 0;
+  top: auto;
+  border-top-width: 1px;
+  /*only relevant for first row*/
+  margin-top: -1px;
+  /*compensate for top border*/
+}
+
+table.xtab-generator th {
+  padding-left: .4em;
+  padding-right: .4em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+div.xtab_generator-sql {
+  margin-top: 2em;
+  border: 1px solid #999;
+  padding: .5em;
+  color: #999;
+  font-size: 85%;
+}
+
+
+
+th.xtab_generator-rotate {
+  /* Something you can count on */
+  height: 300px;
+  white-space: nowrap;
+}
+
+th.xtab_generator-rotate > div {
+  transform: 
+    translate(0px, 135px)
+    rotate(270deg);
+  width: 35px;
+}
+
+th.xtab_generator-rotate > div > span {
+  /* border-bottom: 1px solid #999; */
+  padding: 5px 10px;
+}
+
+table.xtab-generator th.xtab_generator-rotate {
+}
+
+fieldset.tx_xtabgenerator_fieldset {
+  margin-bottom: 1em;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-01-09T13:27:40Z" product-name="xtab_generator">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="aggregate_object.description">
+				<source>Aggregate Object</source>
+			</trans-unit>
+			<trans-unit id="detail_object.description">
+				<source>detailObject</source>
+			</trans-unit>
+			<trans-unit id="template.description">
+				<source>Template</source>
+			</trans-unit>
+			<trans-unit id="rowheader.description">
+				<source>Row Header</source>
+			</trans-unit>
+			<trans-unit id="colheader.description">
+				<source>Column Header</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
