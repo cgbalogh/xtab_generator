@@ -90,7 +90,7 @@ and open the template in the editor.
                             controller='Datatable'
                             extensionName='datatables'
                             pluginName='Datatable'
-                            arguments='{data: \'{rowheader}="{rowKey}" AND {colheader}="{colKey}" AND ({where})\'}'>{element}</f:link.action>
+                            arguments='{data: \'{rowheader}="{rowKey}"AND {colheader}="{colKey}" AND ({where})\'}'>{element}</f:link.action>
                         </f:then>
                         <f:else>
                           {element}

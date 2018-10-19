@@ -43,7 +43,7 @@ class xtabService implements \TYPO3\CMS\Core\SingletonInterface {
      */
     public function arrayToMatrix ( $data = [], $rowTotal = false, $colTotal = false, $transpose = false) {
         $table = [];
-// print_r($data);
+
         // initialize left upper cell with nothing
         $table[0][0] = '';
         $colSum = [];

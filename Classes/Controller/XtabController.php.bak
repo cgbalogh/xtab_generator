@@ -27,12 +27,12 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      * xtabService
-     * 
+     *
      * @var \CGB\XtabGenerator\Service\XtabService
      * @inject
      */
     protected $xtabService = null;
-    
+
     /**
      * action basic
      *
@@ -70,7 +70,7 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $selectOptions[$key]['id'] = $key;
             $selectOptions[$key]['label'] = $headerArray[1];
             
-            foreach($values as $label => $value) {
+  foreach($values as $label => $value) {
                 $selectOptions[$key]['selectoptions'][] =
                     [
                         'label' => $label,
@@ -107,7 +107,6 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
   
         
-        
         $filter['sql']['###_FROM###'] = $this->settings['xtab']['from'];
         $filter['sql']['###_JOIN###'] = $this->settings['xtab']['join'];
         $filter['sql']['###_WHERE###'] = $this->settings['xtab']['where'];
@@ -119,7 +118,7 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $filter['sql']['###_COL_HEADER_DEFAULT###'] = $this->settings['xtab']['column']['defaultheader'];
         $filter['sql']['###_ROW_HEADER_DEFAULT###'] = $this->settings['xtab']['row']['defaultheader'] ? $this->settings['xtab']['row']['defaultheader'] : '*';
         $filter['sql']['###FEUSERID###'] = $GLOBALS['TSFE']->fe_user->user['uid'];
-        
+    
         $coresql = "
             SELECT 
                    IF(###_ROW_HEADER### <> '',###_ROW_HEADER###,' ###_ROW_HEADER_DEFAULT###') AS rowheader, 
@@ -130,7 +129,7 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
              WHERE ###_WHERE###
              GROUP BY 1,2
              ORDER BY 1 ###_ROW_ORDER###, 2 ###_COL_ORDER###
-            ";
+";
         
         $sql = "
             SELECT 
@@ -152,7 +151,7 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
              GROUP BY 1,2
                    )
              ORDER BY 1 ###_ROW_ORDER###, 2 ###_COL_ORDER###
-            ";
+    ";
         
         // first replace run
         $sql = str_replace(array_keys($filter['sql']), $filter['sql'], $sql);
@@ -160,7 +159,7 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         // filter may include additional replacement markers, do again
         $sql = str_replace(array_keys($filter['sql']), $filter['sql'], $sql);
         $coresql = str_replace(array_keys($filter['sql']), $filter['sql'], $coresql);
-        
+       
         $replaceFeUserArray = [];
         foreach($GLOBALS['TSFE']->fe_user->user as $key => $value) {
             $replaceKey = '###FEUSER_' .  $key . '###';
@@ -173,14 +172,14 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $colheader = str_replace(array_keys($filter['sql']), $filter['sql'], $this->settings['xtab']['column']['header']);
         $rowheader = str_replace(array_keys($filter['sql']), $filter['sql'], $this->settings['xtab']['row']['header']);
         $where = str_replace(array_keys($filter['sql']), $filter['sql'], $this->settings['xtab']['where']);
-        
+      
         // execute query
         $result = $this->xtabRepository->findBySqlQuery($sql);
         $colTotal = $rowTotal = true;
         
         $colTotal = ! $this->settings['xtab']['column']['noTotalColumn'];
         $rowTotal = ! $this->settings['xtab']['row']['noTotalRow'];
-        
+    
         // convert result to matrix
         $table = $this->xtabService->arrayToMatrix($result, $rowTotal, $colTotal, $filter['transpose']);
         // print_r($table);
@@ -201,9 +200,9 @@ class XtabController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             'selectOptions' => $selectOptions,
         ]);
     }
-    
+
     /**
-     * 
+  * 
      * @param array $array
      * @return string
      */

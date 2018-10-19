@@ -1,5 +1,119 @@
 {
-    "modules": [],
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    144,
+                    64
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": false,
+                    "_default1_show": false,
+                    "_default2_new_create": false,
+                    "_default3_edit_update": false,
+                    "_default4_delete": false,
+                    "customActions": [
+                        "basic",
+                        "xtab"
+                    ]
+                },
+                "name": "Xtab",
+                "objectsettings": {
+                    "addDeletedField": false,
+                    "addHiddenField": false,
+                    "addStarttimeEndtimeFields": false,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "176515567913"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Title",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": true,
+                            "propertyName": "title",
+                            "propertyType": "String",
+                            "uid": "1444217219633"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Description",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "description",
+                            "propertyType": "Text",
+                            "uid": "633279461047"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Aggregate Object",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "aggregateObject",
+                            "propertyType": "String",
+                            "uid": "156343027049"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "detailObject",
+                            "propertyType": "String",
+                            "uid": "1338204559411"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Template",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "template",
+                            "propertyType": "String",
+                            "uid": "918786186355"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Row Header",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "rowheader",
+                            "propertyType": "Text",
+                            "uid": "937498332730"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Column Header",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "colheader",
+                            "propertyType": "Text",
+                            "uid": "244273025459"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
     "properties": {
         "backendModules": [],
         "description": "Versatile XTAB Generator for any Extbase based extension.",
@@ -9,16 +123,16 @@
             "dependsOn": "typo3 => 7.6.0-7.6.99\n",
             "disableLocalization": true,
             "disableVersioning": true,
-            "skipGenerateDocumentationTemplate": true,
+            "skipGenerateDocumentationTemplate": false,
             "sourceLanguage": "en",
             "state": "alpha",
-            "targetVersion": "7.6.0-7.6.99",
+            "targetVersion": "8.6.0-8.6.99",
             "version": ""
         },
         "extensionKey": "xtab_generator",
         "name": "XTAB Generator",
-        "originalExtensionKey": "",
-        "originalVendorName": "",
+        "originalExtensionKey": "xtab_generator",
+        "originalVendorName": "CGB",
         "persons": [
             {
                 "company": "",
@@ -30,9 +144,9 @@
         "plugins": [
             {
                 "actions": {
-                    "controllerActionCombinations": "Xtab=>basic",
-                    "noncacheableActions": "Xtab=>basic",
-                    "switchableActions": "Basic XTAB \nXtab->basic"
+                    "controllerActionCombinations": "Xtab=>basic,xtab",
+                    "noncacheableActions": "Xtab=>basic,xtab",
+                    "switchableActions": "Generic Xtab\nXtab->xtab\nBasic XTAB \nXtab->basic"
                 },
                 "key": "xtab",
                 "name": "Xtab"
@@ -42,8 +156,8 @@
     },
     "wires": [],
     "log": {
-        "last_modified": "2017-02-11 06:24",
-        "extension_builder_version": "7.6.0",
+        "last_modified": "2018-08-30 11:24",
+        "extension_builder_version": "8.6.0",
         "be_user": " (1)"
     }
 }

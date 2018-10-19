@@ -18,10 +18,10 @@ namespace CGB\XtabGenerator\Domain\Repository;
 class XtabRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     /**
-     * @param $sql
+     * 
      * @return type
      */
-    public function findBySqlQuery($sql)
+    public function findBySqlQuery ($sql)
     {
         $query = $this->createQuery();
         $query->statement($sql);

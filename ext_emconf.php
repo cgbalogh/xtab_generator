@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => '0',
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '8.7.2-rc80528',
+    'version' => '8.7.2-rc81018',
     'constraints' => [
         'depends' => [
             'typo3' => '7.6.0-8.9.99',
@@ -30,24 +30,3 @@ $EM_CONF[$_EXTKEY] = [
         'suggests' => [],
     ],
 ];
-
-/**
- * 8.7.2-rc80528
- * cleanup of plugin settings
- * 
- * 8.7.2-rc80524
- * introduced $sqlcore for better transparency of core query for help display
- * 
- * 8.7.2-rc80523
- * allow column mapping with FIELD() and ELT()
- * 
- * 8.7.2-rc80522
- * corrected headers when in rteverse row order
- * added possibility to cascade query expressions
- * 
- * 8.7.2.-rc80513
- * added possibility to refer to ###FEUSER_field### values in where clause
- * 
- * 8.7.2-rc80507
- * corrected transpose function
- */
